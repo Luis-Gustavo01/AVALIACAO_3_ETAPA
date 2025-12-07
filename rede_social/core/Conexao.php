@@ -4,10 +4,10 @@ class Conexao {
 
     public static function getPdo() {
         if (!self::$pdo) {
-            $host = 'localhost';
-            $db   = 'rede';
-            $user = 'root';
-            $pass = '';
+            $host = 'sql206.infinityfree.com';
+            $db   = 'if0_40621847_rede';
+            $user = 'if0_40621847';
+            $pass = 'Lu1sGusav0';
             $charset = 'utf8mb4';
 
             $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
