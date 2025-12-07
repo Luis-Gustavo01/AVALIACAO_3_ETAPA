@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clone X</title>
+    <link rel="stylesheet" href="../public/style/style.css">
+    <style>
+        body { background-color: #f0f2f5; font-family: Arial, sans-serif; }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
+        }
+        h2 { text-align: center; color: #1c1e21; margin-bottom: 20px; }
+        input[type="text"], input[type="email"], input[type="password"], input[type="date"], select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #000;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        button:hover { background-color: #333; }
+        .error { color: red; margin-bottom: 10px; padding: 10px; background-color: #ffe0e0; border-radius: 4px; }
+        .link-login { text-align: center; margin-top: 15px; }
+        .link-login a { color: #1877f2; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Criar Nova Conta</h2>
+
+        <?php if (!empty($erros)): ?>
+            <div class="error">
+                <?php foreach ($erros as $erro): ?>
+                    <p><?php echo htmlspecialchars($erro); ?></p>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+
+        <form method="POST" action="AuthController.php?action=cadastro">
+            <input type="text" name="nome" placeholder="Nome completo" value="<?php echo htmlspecialchars($dados_preenchidos['nome']); ?>" required>
+            <input type="text" name="username" placeholder="Nome de usuário (username)" value="<?php echo htmlspecialchars($dados_preenchidos['username']); ?>" required>
+            <input type="email" name="email" placeholder="E-mail" value="<?php echo htmlspecialchars($dados_preenchidos['email']); ?>" required>
+            <input type="password" name="senha" placeholder="Senha" required>
+            <input type="password" name="confirmacao_senha" placeholder="Confirmação de senha" required>
+            <input type="date" name="data_nasc" value="<?php echo htmlspecialchars($dados_preenchidos['data_nasc']); ?>" required>
+            
+            <select name="genero" required>
+                <option value="">Selecione seu Gênero</option>
+                <option value="Feminino" <?php echo (strtolower($dados_preenchidos['genero']) === 'feminino') ? 'selected' : ''; ?>>Feminino</option>
+                <option value="Masculino" <?php echo (strtolower($dados_preenchidos['genero']) === 'masculino') ? 'selected' : ''; ?>>Masculino</option>
+                <option value="Outro" <?php echo (strtolower($dados_preenchidos['genero']) === 'outro' || empty($dados_preenchidos['genero'])) ? 'selected' : ''; ?>>Outro</option>
+            </select>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+        <div class="link-login">
+            <a href="AuthController.php?action=login">Já tem uma conta? Faça login</a>
+        </div>
+    </div>
+</body>
+</html>

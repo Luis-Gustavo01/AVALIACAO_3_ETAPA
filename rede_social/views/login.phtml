@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clone X</title>
+    <link rel="stylesheet" href="../public/style/style.css">
+    <style>
+        body { background-color: #f0f2f5; font-family: Arial, sans-serif; }
+        .container {
+            max-width: 350px;
+            margin: 100px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
+        }
+        h2 { text-align: center; color: #1c1e21; margin-bottom: 20px; }
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #000;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        button:hover { background-color: #333; }
+        .error, .success { margin-bottom: 15px; padding: 10px; border-radius: 4px; text-align: center; }
+        .error { color: red; background-color: #ffe0e0; }
+        .success { color: green; background-color: #e0ffe0; }
+        .link-cadastro { text-align: center; margin-top: 15px; border-top: 1px solid #dddfe2; padding-top: 15px; }
+        .link-cadastro a { 
+            color: white; 
+            background-color: #42b72a; 
+            padding: 10px 15px; 
+            border-radius: 6px; 
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Clone X</h2>
+
+        <?php if ($erro_login): ?>
+            <div class="error"><?php echo htmlspecialchars($erro_login); ?></div>
+        <?php endif; ?>
+        <?php if ($sucesso_cadastro): ?>
+            <div class="success"><?php echo htmlspecialchars($sucesso_cadastro); ?></div>
+        <?php endif; ?>
+
+        <form method="POST" action="AuthController.php">
+            <input type="email" name="email" placeholder="E-mail" value="<?php echo htmlspecialchars($email_preenchido); ?>" required>
+            <input type="password" name="senha" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+        <div class="link-cadastro">
+            <a href="AuthController.php?action=cadastro">Criar nova conta</a>
+        </div>
+    </div>
+</body>
+</html>

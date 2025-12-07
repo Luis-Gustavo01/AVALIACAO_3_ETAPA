@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+#navbar {
+    width: 58px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    padding-top: 15px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+}
+
+#navbar-inner ul {
+    list-style: none;
+}
+
+.item-menu a {
+    display: block;
+    text-align: center;
+    padding: 15px 0;
+    color: #000;
+    text-decoration: none;
+    font-size: 1.5em;
+    transition: background-color 0.3s;
+}
+
+.item-menu a:hover, .item-menu.ativo a {
+    background-color: #f0f0f0;
+}
+
+.main-content-wrapper {
+    margin-left: 58px;
+    padding: 20px;
+}
+
+#tela-central {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.message-box.error-message {
+    color: red;
+    background-color: #ffe0e0;
+    padding: 10px;
+    border-radius: 5px;
+}
+.message-box.success-message {
+    color: green;
+    background-color: #e0ffe0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#perfil {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+#perfil img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+#perfil-info h3 {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+#perfil-info p {
+    margin: 0;
+    color: #657786;
+    font-size: 0.9em;
+}
+
+#new_post textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    resize: vertical;
+    min-height: 80px;
+}
+
+#new_post button {
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    display: block;
+    margin-left: auto;
+}
+
+.post {
+    border: 1px solid #eee;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.post-header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.post-info h3 {
+    margin: 0;
+    font-size: 1em;
+}
+
+.post-info p.arroba {
+    margin: 0;
+    color: #657786;
+    font-size: 0.8em;
+}
+
+.postagem {
+    margin-bottom: 10px;
+}
+
+.reacoes button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #555;
+    padding: 0;
+    margin-right: 15px;
+}
+
+.reacoes p.reacao {
+    display: inline-block;
+    color: #657786;
+    font-size: 0.9em;
+}
+
+.reacoes .curtido i {
+    color: red !important;
+}
+
+.delete-form {
+    margin-left: auto; 
+}
+.delete-form button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #999;
+}
+.delete-form button:hover {
+    color: red;
+}

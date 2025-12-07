@@ -1,0 +1,23 @@
+<header>
+    <nav id="navbar">
+        <div id="navbar-inner">
+            <ul>
+                <li class="item-menu <?php echo (strpos($_SERVER['REQUEST_URI'], 'FeedController') !== false) ? 'ativo' : ''; ?>">
+                    <a href="feedController.php" title="Feed"><span class="icon"><i class="bi bi-house"></i></span></a>
+                </li>
+                <li class="item-menu <?php echo (strpos($_SERVER['REQUEST_URI'], 'BuscaController') !== false) ? 'ativo' : ''; ?>">
+                    <a href="buscaController.php" title="Pesquisar"><span class="icon"><i class="bi bi-search"></i></span></a>
+                </li>
+                <li class="item-menu">
+                    <a href="#" title="Novo Post"><span class="icon"><i class="bi bi-plus-circle-fill"></i></span></a>
+                </li>
+                <li class="item-menu <?php echo (strpos($_SERVER['REQUEST_URI'], 'PerfilController') !== false) ? 'ativo' : ''; ?>">
+                    <a href="perfilController.php" title="Perfil"><span class="icon"><i class="bi bi-person-circle"></i></span></a>
+                </li>
+                <li class="item-menu">
+                    <a href="authController.php?action=logout" title="Logout"><span class="icon"><i class="bi bi-box-arrow-right"></i></span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
