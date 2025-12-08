@@ -50,11 +50,13 @@ class AuthController {
         $dados_preenchidos = ['nome' => '', 'username' => '', 'email' => '', 'data_nasc' => '', 'genero' => ''];
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            
+            $senha = isset($_POST['senha']) ? (string)$_POST['senha'] : '';
+            $confirmacao_senha = isset($_POST['confirmaSenha']) ? (string)$_POST['confirmaSenha'] : '';
+            
             $nome = $_POST['nome'] ?? '';
             $username = $_POST['username'] ?? '';
             $email = $_POST['email'] ?? '';
-            $senha = $_POST['senha'] ?? '';
-            $confirmacao_senha = $_POST['confirma_senha'] ?? '';
             $data_nasc = $_POST['data_nasc'] ?? '';
             $genero = $_POST['genero'] ?? '';
 
@@ -66,11 +68,12 @@ class AuthController {
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $erros[] = "O e-mail fornecido não é válido.";
             }
-            if (strlen($senha) < 6 || !preg_match('/[A-Z]/', $senha) || !preg_match('/[0-9]/', $senha)) {
-                $erros[] = "A senha deve ter no mínimo 6 caracteres, 1 maiúscula e 1 número.";
-            }
+            
             if ($senha !== $confirmacao_senha) {
                 $erros[] = "A senha e a confirmação de senha não coincidem.";
+            }
+            if (strlen($senha) < 6 || !preg_match('/[A-Z]/', $senha) || !preg_match('/[0-9]/', $senha)) {
+                $erros[] = "A senha deve ter no mínimo 6 caracteres, 1 maiúscula e 1 número.";
             }
             
             $generos_validos = ['feminino', 'masculino', 'outro'];
